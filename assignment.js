@@ -39,7 +39,37 @@ function getRandomColor(){
     const letters = '0123456789ABCDEF'
     let color = '#'
     for (let i=0; i<6; i++){
-        color += letters[math.floor(Math.random() * 16)]
+        color += letters[Math.floor(Math.random() * 16)]
     }
     return color
 }
+
+let buttons = []
+let originalColors = []
+
+for (let i=1; i <=10; i++){
+    let btn = document.createElement("button")
+    btn.innerText = "button" + i
+    let color = getRandomColor()
+    btn.style.backgroundColor = color
+    buttons.push(btn)
+    originalColors.push(color)
+    document.getElementById("buttonContainer").appendChild(btn)
+}
+
+let colorSelector = document.getElementById("colorSelector");
+
+colorSelector.addEventListener("change", function(){
+    let selectedColor = this.value
+    for (let i=0; i < buttons.length; i++){
+        if (selectedColor === "red" || selectedColor === "green" || selectedColor === "blue"){
+            buttons[i].style.backgroundColor = selectedColor
+        }
+            else if (selectedColor === "random"){
+                buttons[i].style.backgroundColor = getRandomColor()
+            }
+            else if (selectedColor === "reset"){
+                buttons[i].style.backgroundColor = originalColors[i]
+            }
+        }
+})
