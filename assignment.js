@@ -2,10 +2,21 @@
 
 function createMulti(){
     let input = Number(window.prompt("Select a number: "))
+    let table = document.getElementById("MultiTable")
+    table.innerHTML = ""
+
     for(let i=1; i<11; i++){
-        let item = document.createElement("li")
-        item.innerText = `${input} * ${i} = ${input * i}`
-        document.getElementById("ul").appendChild(item)
+        let row = createElement("tr")
+
+        let cell1 = document.createElement("tr")
+        cell1.innerText = `${input} * ${i} = ${input * i}`
+
+        let cell2 = document.createElement("td")
+        cell2.innerText = input * i
+
+        row.appendChild(cell1)
+        row.appendChild(cell2)
+        table.appendChild(row)
     }
 }
 
