@@ -35,9 +35,11 @@
 
 // #2: Colors //
 
-function whoClickedMe(thing){
-    console.log(thing);
-    console.log(thing.id);
-    console.log(thing.attributes);
-    console.log(thing.value);
+function getRandomColor(){
+    const letters = '0123456789ABCDEF'
+    let color = '#'
+    for (let i=0; i<6; i++){
+        color += letters[math.floor(Math.random() * 16)]
+    }
+    return color
 }
